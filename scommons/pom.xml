@@ -1,0 +1,85 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.mbari</groupId>
+    <artifactId>commons</artifactId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+  <artifactId>scommons</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <name>${project.artifactId}</name>
+  <description>Commons Scala functions</description>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.scala-lang</groupId>
+      <artifactId>scala3-library_${scala.compat.version}</artifactId>
+      <version>${scala.version}</version>
+    </dependency>
+
+    <!-- Test -->
+    <dependency>
+      <groupId>org.scalameta</groupId>
+      <artifactId>munit_${scala.compat.version}</artifactId>
+      <version>${munit.version}</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <sourceDirectory>src/main/scala</sourceDirectory>
+    <testSourceDirectory>src/test/scala</testSourceDirectory>
+    <plugins>
+      <plugin>
+        <!-- see http://davidb.github.com/scala-maven-plugin -->
+        <groupId>net.alchim31.maven</groupId>
+        <artifactId>scala-maven-plugin</artifactId>
+        <version>4.8.0</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>compile</goal>
+              <goal>testCompile</goal>
+            </goals>
+            <configuration>
+              <args>
+                <arg>-deprecation</arg>  <!-- Emit warning and location for usages of deprecated APIs. -->
+                <arg>-encoding</arg>
+                <arg>UTF-8</arg>         <!-- yes, this is 2 args. Specify character encoding used by source
+                files. -->
+                <arg>-feature</arg>      <!--  Emit warning and location for usages of features that
+                should be imported explicitly. -->
+                <arg>-language:existentials</arg>
+                <arg>-language:higherKinds</arg>
+                <arg>-language:implicitConversions</arg>
+                <arg>-language:postfixOps</arg>
+                <arg>-indent</arg>
+                <arg>-rewrite</arg>
+                <arg>-unchecked</arg>
+                <arg>-Vprofile</arg>
+              </args>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.22.2</version>
+        <dependencies>
+          <dependency>
+            <groupId>org.junit.vintage</groupId>
+            <artifactId>junit-vintage-engine</artifactId>
+            <version>5.6.2</version>
+          </dependency>
+        </dependencies>
+        <configuration>
+          <includes>
+            <include>**/*Spec.*</include>
+          </includes>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
