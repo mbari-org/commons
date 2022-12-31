@@ -263,8 +263,7 @@ protected trait Mathematics:
       (2 until ni) forall { d =>
         nd % d != 0
       }
-    else
-      false
+    else false
 
   /**
    * generates n linearly-spaced points between d1 and d2.

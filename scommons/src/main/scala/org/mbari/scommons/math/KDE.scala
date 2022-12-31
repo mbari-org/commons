@@ -174,7 +174,6 @@ object KDE:
         val fa = (for (i <- I.indices) yield pow(I(i), s) * a2(i) * exp(-I(i) * pow(Pi, 2) * time)).sum
         2 * pow(Pi, 2 * s) * fa
 
-
     // MATLAB: out=t-(2*N*sqrt(pi)*f)^(-2/5);
     t - pow(2 * N * sqrt(Pi) * f, -2 / 5d)
 
