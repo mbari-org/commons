@@ -1,7 +1,7 @@
 package org.mbari.scommons.math
 
 import org.mbari.jcommons.math.Statlib
-import math._
+import scala.math._
 
 /**
  * Statistics functions

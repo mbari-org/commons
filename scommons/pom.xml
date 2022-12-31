@@ -25,6 +25,28 @@
       <version>${project.version}</version>
     </dependency>
 
+    <!-- FFT "com.github.rwl" % "jtransforms" % "2.4.0", // FFT-->
+    <dependency>
+      <groupId>com.github.rwl</groupId>
+      <artifactId>jtransforms</artifactId>
+      <version>2.4.0</version>
+    </dependency>
+
+    <!-- complex numbers "org.typelevel" %% "spire" % "0.17.0-M1", // Complex numbers -->
+    <dependency>
+      <groupId>org.typelevel</groupId>
+      <artifactId>spire_${scala.compat.version}</artifactId>
+      <version>0.18.0</version>
+    </dependency>
+
+    <!-- commons math "org.apache.commons" % "commons-math3" % "3.6.1" -->
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-math3</artifactId>
+      <version>3.6.1</version>
+    </dependency>
+
+
     <!-- Test -->
     <dependency>
       <groupId>org.scalameta</groupId>
