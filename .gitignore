@@ -1,0 +1,6 @@
+.bloop/
+.classpath
+.metals/
+.project
+.settings
+target/

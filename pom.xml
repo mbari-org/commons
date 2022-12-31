@@ -40,6 +40,7 @@
   </dependencies>
 
   <modules>
+    <module>jcommons</module>
     <module>scommons</module>
   </modules>
 
@@ -51,7 +52,7 @@
         <version>2.28.0</version>
         <configuration>
           <!-- optional: limit format enforcement to just the files changed by this feature branch -->
-          <ratchetFrom>origin/main</ratchetFrom>
+          <!-- <ratchetFrom>origin/main</ratchetFrom> -->
           <formats>
             <!-- you can define as many formats as you want, each is independent -->
             <format>
@@ -75,7 +76,7 @@
 
             <!-- apply a specific flavor of google-java-format and reflow long strings -->
             <googleJavaFormat>
-              <version>1.8</version>
+              <version>1.15.0</version>
               <style>AOSP</style>
               <reflowLongStrings>true</reflowLongStrings>
             </googleJavaFormat>
@@ -93,7 +94,7 @@
           <scala>
             <scalafmt>
               <version>3.5.9</version>              <!-- optional -->
-              <file>${project.basedir}/.scalafmt.conf</file> <!-- optional -->
+              <file>${maven.multiModuleProjectDirectory}/.scalafmt.conf</file> <!-- optional -->
             </scalafmt>
           </scala>
         </configuration>

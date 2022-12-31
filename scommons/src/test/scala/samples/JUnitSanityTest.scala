@@ -4,14 +4,10 @@ import org.junit._
 import Assert._
 
 @Test
-class AppTest {
+class JUnitSanityTest:
 
-    @Test
-    def testOK() = assertTrue(true)
+  @Test
+  def testOK() = assertTrue(true)
 
 //    @Test
 //    def testKO() = assertTrue(false)
-
-}
-
-
