@@ -37,9 +37,13 @@
     <maven.compiler.source>17</maven.compiler.source>
     <maven.compiler.target>17</maven.compiler.target>
     <encoding>UTF-8</encoding>
+    <!-- Dependency versions -->
+    <junit.version>5.9.1</junit.version>
+    <logback.version>1.4.5</logback.version>
     <munit.version>1.0.0-M7</munit.version>
     <scala.version>3.2.1</scala.version>
     <scala.compat.version>3</scala.compat.version>
+    <slf4j.version>2.0.3</slf4j.version>
   </properties>
 
   <dependencies>
@@ -55,9 +59,40 @@
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter</artifactId>
-      <version>5.7.1</version>
+      <version>${junit.version}</version>
       <scope>test</scope>
     </dependency>
+
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-engine</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+
+    <!-- <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-vintage</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency> -->
+
+    <!-- "ch.qos.logback"               % "logback-classic" % "1.4.4" -->
+    <!-- <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <version>${logback.version}</version>
+      <scope>test</scope>
+    </dependency> -->
+
+    <!-- "org.slf4j"      % "slf4j-jdk-platform-logging"   % slf4jVersion -->
+    <!-- <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-jdk-platform-logging</artifactId>
+      <version>${slf4j.version}</version>
+      <scope>test</scope>
+    </dependency> -->
 
   </dependencies>
 
@@ -68,6 +103,10 @@
 
   <build>
     <plugins>
+      <plugin>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.0.0-M7</version>
+      </plugin>
       <plugin>
         <groupId>com.diffplug.spotless</groupId>
         <artifactId>spotless-maven-plugin</artifactId>

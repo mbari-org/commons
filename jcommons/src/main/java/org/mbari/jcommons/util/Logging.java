@@ -15,6 +15,10 @@ public record Logging(Logger logger, Level level, Throwable cause) {
         this(System.getLogger(loggerName), Level.OFF, null);
     }
 
+    public Logging(Class<?> clazz) {
+        this(clazz.getName());
+    }
+
     public Logging atTrace() {
         return new Logging(logger, Level.TRACE, cause);
     }
