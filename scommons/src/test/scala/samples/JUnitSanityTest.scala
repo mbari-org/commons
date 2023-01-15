@@ -1,7 +1,7 @@
 package samples
 
-import org.junit._
-import Assert._
+import org.junit.Test
+import org.junit.Assert.*
 
 @Test
 class JUnitSanityTest:

@@ -37,62 +37,42 @@
     <maven.compiler.source>17</maven.compiler.source>
     <maven.compiler.target>17</maven.compiler.target>
     <encoding>UTF-8</encoding>
+    <!-- Plugin version -->
+    <plugin.gpg.version>1.6</plugin.gpg.version>
+    <plugin.javadoc.version>3.2.0</plugin.javadoc.version>
+    <plugin.nexus-staging.version>1.6.7</plugin.nexus-staging.version>
+    <plugin.source.version>3.2.1</plugin.source.version>
+    <plugin.scala.version>4.8.0</plugin.scala.version>
+    <plugin.spotless.version>2.28.0</plugin.spotless.version>
+    <plugin.surefire.version>3.0.0-M8</plugin.surefire.version>
     <!-- Dependency versions -->
-    <junit.version>5.9.1</junit.version>
+    <jtransforms.version>2.4.0</jtransforms.version>
+    <junit.version>4.13.1</junit.version>
+    <jupiter.version>5.7.0</jupiter.version>
     <logback.version>1.4.5</logback.version>
+    <math3.version>3.6.1</math3.version>
     <munit.version>1.0.0-M7</munit.version>
     <scala.version>3.2.1</scala.version>
     <scala.compat.version>3</scala.compat.version>
     <slf4j.version>2.0.3</slf4j.version>
+    <spire.version>0.18.0</spire.version>
   </properties>
 
   <dependencies>
 
-    <!-- Test -->
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.12</version>
-      <scope>test</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter</artifactId>
-      <version>${junit.version}</version>
-      <scope>test</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-engine</artifactId>
-      <version>${junit.version}</version>
-      <scope>test</scope>
-    </dependency>
-
-
-    <!-- <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-vintage</artifactId>
-      <version>${junit.version}</version>
-      <scope>test</scope>
-    </dependency> -->
-
-    <!-- "ch.qos.logback"               % "logback-classic" % "1.4.4" -->
-    <!-- <dependency>
       <groupId>ch.qos.logback</groupId>
       <artifactId>logback-classic</artifactId>
       <version>${logback.version}</version>
       <scope>test</scope>
-    </dependency> -->
+    </dependency>
 
-    <!-- "org.slf4j"      % "slf4j-jdk-platform-logging"   % slf4jVersion -->
-    <!-- <dependency>
+    <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-jdk-platform-logging</artifactId>
       <version>${slf4j.version}</version>
       <scope>test</scope>
-    </dependency> -->
+    </dependency>
 
   </dependencies>
 
@@ -105,12 +85,12 @@
     <plugins>
       <plugin>
         <artifactId>maven-surefire-plugin</artifactId>
-        <version>3.0.0-M7</version>
+        <version>${plugin.surefire.version}</version>
       </plugin>
       <plugin>
         <groupId>com.diffplug.spotless</groupId>
         <artifactId>spotless-maven-plugin</artifactId>
-        <version>2.28.0</version>
+        <version>${plugin.spotless.version}</version>
         <configuration>
           <!-- optional: limit format enforcement to just the files changed by this feature branch -->
           <!-- <ratchetFrom>origin/main</ratchetFrom> -->
@@ -174,7 +154,7 @@
           <plugin>
               <groupId>org.sonatype.plugins</groupId>
               <artifactId>nexus-staging-maven-plugin</artifactId>
-              <version>1.6.7</version>
+              <version>${plugin.nexus-staging.version}</version>
               <extensions>true</extensions>
               <configuration>
                   <serverId>ossrh</serverId>
@@ -200,7 +180,7 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-gpg-plugin</artifactId>
-            <version>1.6</version>
+            <version>${plugin.gpg.version}</version>
             <executions>
               <execution>
                 <id>sign-artifacts</id>
@@ -214,7 +194,7 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-javadoc-plugin</artifactId>
-            <version>3.2.0</version>
+            <version>${plugin.javadoc.version}</version>
             <executions>
               <execution>
                 <id>attach-javadocs</id>
@@ -230,7 +210,7 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-source-plugin</artifactId>
-            <version>3.2.1</version>
+            <version>${plugins.source.version}</version>
             <executions>
               <execution>
                 <id>attach-sources</id>

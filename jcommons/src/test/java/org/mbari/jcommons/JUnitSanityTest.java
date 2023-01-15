@@ -1,7 +1,7 @@
 /* (C)2022 */
 package org.mbari.jcommons;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
