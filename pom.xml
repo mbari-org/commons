@@ -129,8 +129,8 @@
             through git history (see
             "license" section below) -->
             <licenseHeader>
-              <content>/* (C)$YEAR */</content>  <!-- or
-              <file>${project.basedir}/license-header</file> -->
+              <file>${maven.multiModuleProjectDirectory}/license-header</file>
+              <!-- or <content>/* (C)$YEAR */</content> -->
             </licenseHeader>
           </java>
           <scala>
