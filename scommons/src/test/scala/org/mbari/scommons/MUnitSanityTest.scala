@@ -1,4 +1,4 @@
-package samples
+package org.mbari.scommons
 
 class MUnitSanityTest extends munit.FunSuite:
 

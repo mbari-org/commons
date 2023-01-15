@@ -1,4 +1,4 @@
-package samples
+package org.mbari.scommons
 
 import org.junit.Test
 import org.junit.Assert.*

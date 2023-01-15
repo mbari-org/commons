@@ -50,6 +50,7 @@
     <junit.version>4.13.1</junit.version>
     <jupiter.version>5.7.0</jupiter.version>
     <logback.version>1.4.5</logback.version>
+    <mail.version>1.5</mail.version>
     <math3.version>3.6.1</math3.version>
     <munit.version>1.0.0-M7</munit.version>
     <scala.version>3.2.1</scala.version>
