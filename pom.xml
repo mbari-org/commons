@@ -39,10 +39,12 @@
     <encoding>UTF-8</encoding>
     <!-- Plugin version -->
     <plugin.gpg.version>1.6</plugin.gpg.version>
-    <plugin.javadoc.version>3.2.0</plugin.javadoc.version>
+    <plugin.javadoc.version>3.4.1</plugin.javadoc.version>
     <plugin.nexus-staging.version>1.6.7</plugin.nexus-staging.version>
-    <plugin.source.version>3.2.1</plugin.source.version>
+    <plugin.project-info-reports.version>3.4.2</plugin.project-info-reports.version>
     <plugin.scala.version>4.8.0</plugin.scala.version>
+    <plugin.site.version>4.0.0-M4</plugin.site.version>
+    <plugin.source.version>3.2.1</plugin.source.version>
     <plugin.spotless.version>2.28.0</plugin.spotless.version>
     <plugin.surefire.version>3.0.0-M8</plugin.surefire.version>
     <!-- Dependency versions -->
@@ -53,8 +55,8 @@
     <mail.version>1.5</mail.version>
     <math3.version>3.6.1</math3.version>
     <munit.version>1.0.0-M7</munit.version>
-    <scala.version>3.2.1</scala.version>
     <scala.compat.version>3</scala.compat.version>
+    <scala.version>3.2.1</scala.version>
     <slf4j.version>2.0.3</slf4j.version>
     <spire.version>0.18.0</spire.version>
   </properties>
@@ -87,6 +89,16 @@
       <plugin>
         <artifactId>maven-surefire-plugin</artifactId>
         <version>${plugin.surefire.version}</version>
+        <configuration>
+          <aggregate>true</aggregate>
+          <!--also set this to link to generated source reports-->
+          <linkXRef>true</linkXRef>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-site-plugin</artifactId>
+        <version>${plugin.site.version}</version>
       </plugin>
       <plugin>
         <groupId>com.diffplug.spotless</groupId>
@@ -152,20 +164,30 @@
     </plugins>
     <pluginManagement>
       <plugins>
-          <plugin>
-              <groupId>org.sonatype.plugins</groupId>
-              <artifactId>nexus-staging-maven-plugin</artifactId>
-              <version>${plugin.nexus-staging.version}</version>
-              <extensions>true</extensions>
-              <configuration>
-                  <serverId>ossrh</serverId>
-                  <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
-                  <autoReleaseAfterClose>true</autoReleaseAfterClose>
-              </configuration>
-          </plugin>
+        <plugin>
+          <groupId>org.sonatype.plugins</groupId>
+          <artifactId>nexus-staging-maven-plugin</artifactId>
+          <version>${plugin.nexus-staging.version}</version>
+          <extensions>true</extensions>
+          <configuration>
+            <serverId>ossrh</serverId>
+            <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
+            <autoReleaseAfterClose>true</autoReleaseAfterClose>
+          </configuration>
+        </plugin>
       </plugins>
-  </pluginManagement>
+    </pluginManagement>
   </build>
+
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>${plugin.javadoc.version}</version>
+      </plugin>
+    </plugins>
+  </reporting>
 
   <profiles>
     <profile>
@@ -228,13 +250,17 @@
 
   <distributionManagement>
     <snapshotRepository>
-        <id>ossrh</id>
-        <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+      <id>ossrh</id>
+      <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
     </snapshotRepository>
     <repository>
-        <id>ossrh</id>
-        <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+      <id>ossrh</id>
+      <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
     </repository>
-</distributionManagement>
+    <site>
+      <id>${project.artifactId}-site</id>
+      <url>${project.baseUri}</url>
+    </site>
+  </distributionManagement>
 
 </project>

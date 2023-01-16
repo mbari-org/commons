@@ -123,6 +123,30 @@
           </includes>
         </configuration>
       </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-site-plugin</artifactId>
+        <version>${plugin.site.version}</version>
+        <configuration>
+          <reportPlugins>
+            <plugin>
+              <artifactId>maven-project-info-reports-plugin</artifactId>
+              <version>${plugin.project-info-reports.version}</version>
+            </plugin>
+            <plugin>
+              <groupId>net.alchim31.maven</groupId>
+              <artifactId>scala-maven-plugin</artifactId>
+              <version>${plugin.scala.version}</version>
+              <configuration>
+                <jvmArgs>
+                  <jvmArg>-Xms64m</jvmArg>
+                  <jvmArg>-Xmx1024m</jvmArg>
+                </jvmArgs>
+              </configuration>
+            </plugin>
+          </reportPlugins>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
 

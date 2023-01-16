@@ -75,7 +75,6 @@ public class StringUtil {
     /**
      * Useful method for ordering a 1-D array based on an array of indices
      *
-     * @see mbarix4j.util.MathUtil.uniqueSort()
      * @param values A 1-D array of data to be sorted based on an array of indices
      * @param order A 1-D array of indices specifying the ordering of the data.
      */

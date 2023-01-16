@@ -107,7 +107,7 @@ public class Chlorophyll {
      * OC2V2 Modified ocean chlorphyll 2 algorithm
      *
      * <p>OC2V2 calculates ocean chlorphyll from in water upwelled radiance (Lu). The algorithm is
-     * from Stephane Maritorena <stephane@caldouble.gfsc.nasa.gov>
+     * from Stephane Maritorena - stephane@caldouble.gfsc.nasa.gov
      *
      * <p>It's modified in that the original algotithm uses: R = log(Rrs_490/Rrs_555) where Rrs is
      * the remote reflectance ratio
@@ -132,7 +132,7 @@ public class Chlorophyll {
      * OC2V4 2-band ocean chlorphyll algorithm (version 4)
      *
      * <p>OC2V4 calculates ocean chlorphyll from in water upwelled radiance (Lu). The algorithm is
-     * from Jay O'Reilly <oreilly@fish1.gso.uri.edu>
+     * from Jay O'Reilly - oreilly@fish1.gso.uri.edu
      *
      * <p>Note: the units of Rrs490 and Rrs555 are not important. however they must be the same for
      * both inputs. If Rrs is unavailable use Lw or Lwn.
@@ -151,7 +151,7 @@ public class Chlorophyll {
      * OC4V4 4-band ocean chlorphyll algorithm (version 4)
      *
      * <p>OC4V4 calculates ocean chlorphyll from in water upwelled radiance (Lu). The algorithm is
-     * from Jay O'Reilly <oreilly@fish1.gso.uri.edu>
+     * from Jay O'Reilly - oreilly@fish1.gso.uri.edu
      *
      * <p>Note: the units of rrs443, rrs490, rrs510 and rrs555 are not important. however they must
      * be the same for both inputs. If Rrs is unavailable use Lw or Lwn.

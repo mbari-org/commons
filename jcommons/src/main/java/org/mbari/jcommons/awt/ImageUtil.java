@@ -89,7 +89,7 @@ public class ImageUtil {
 
     /**
      * This method returns true if the specified image has transparent pixels. This code is from <a
-     * href="http://www.exampledepot.com/egs/java.awt.image/HasAlpha.html" /> The Java Developers
+     * href="http://www.exampledepot.com/egs/java.awt.image/HasAlpha.html" >The Java Developers
      * Almanac 1.4</a>
      *
      * @param image
@@ -140,7 +140,7 @@ public class ImageUtil {
     /**
      * Converts a RenderedImage into a BufferedImage. If the RenderedImage is already a
      * BufferedImage then the input argument is returned (i.e. no operations are performed on the
-     * image). Found this at {@link http://www.mambo.net/cgi-bin/TempProcessor/view/77}
+     * image). Found this at http://www.mambo.net/cgi-bin/TempProcessor/view/77
      *
      * @param image The RenderedImage to convert
      * @return The input converted to a BufferedImage
@@ -172,7 +172,7 @@ public class ImageUtil {
 
     /**
      * This method returns a buffered image with the contents of an image. This code is from <a
-     * href="http://www.exampledepot.com/egs/java.awt.image/Image2Buf.html?l=rel" /> The Java
+     * href="http://www.exampledepot.com/egs/java.awt.image/Image2Buf.html?l=rel" > The Java
      * Developers Almanac 1.4</a>
      *
      * @param image The Image to convert to a BufferedImage
@@ -234,7 +234,7 @@ public class ImageUtil {
 
     /**
      * This method returns an Image object from a buffered image. This code is from <a
-     * href="http://www.exampledepot.com/egs/java.awt.image/Buf2Image.html?l=rel" /> The Java
+     * href="http://www.exampledepot.com/egs/java.awt.image/Buf2Image.html?l=rel" >The Java
      * Developers Almanac 1.4</a>
      *
      * @param bufferedImage

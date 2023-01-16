@@ -40,7 +40,7 @@ import java.util.stream.Collectors;
  * <pre>
  *  // --- Shared properties both the beacon and pinger will need
  *  // These are the potential ports the beacon could be on.
- *  Collection<Integer> BEACON_PORTS = Lists.newArrayList(4002, 4121, 5097, 6238, 6609,
+ *  var BEACON_PORTS = Lists.newArrayList(4002, 4121, 5097, 6238, 6609,
  *          7407, 8169, 9069, 9669, 16569);
  *  // The unique-ish message that the that is checked for by the pinger.
  *  String BEACON_MESSAGE = "My Awesome App";
