@@ -146,8 +146,8 @@ protected trait Mathematics:
    * @return
    *   A Stream of numbers in a fibonacci sequence up to the fibonacci number for x
    */
-  def fibonacciStream(x: Int): Stream[BigInt] =
-    def fib(a: BigInt, b: BigInt = 1): Stream[BigInt] =
+  def fibonacciStream(x: Int): LazyList[BigInt] =
+    def fib(a: BigInt, b: BigInt = 1): LazyList[BigInt] =
       a #:: fib(b, a + b)
     0 #:: fib(BigInt(1)).take(x)
 
@@ -416,7 +416,7 @@ protected trait Mathematics:
       case "first" => true
       case _       => false
 
-    val av = a.toStream
+    val av = a.toList
 
     val c  = av.distinct.sorted
     val ia =

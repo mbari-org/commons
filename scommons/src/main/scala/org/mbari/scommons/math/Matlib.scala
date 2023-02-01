@@ -122,7 +122,7 @@ object Matlib extends Mathematics with Probabilities with Statistics with Trigon
     (for (i <- 0 until idx.size) yield data(idx(i))).toArray
 
   def find[A](data: Array[A], predicate: A => Boolean): Seq[Int] =
-    data.zipWithIndex.filter(i => predicate(i._1)).map(_._2)
+    data.zipWithIndex.filter(i => predicate(i._1)).map(_._2).toIndexedSeq
 
   // https://stackoverflow.com/questions/4859261/get-the-indices-of-an-array-after-sorting
   private def sortWith[T](x: Array[T], comparator: Comparator[T]): Seq[Int] =
@@ -131,7 +131,7 @@ object Matlib extends Mathematics with Probabilities with Statistics with Trigon
       override def compare(i0: JInteger, i1: JInteger) =
         comparator.compare(x(i0), x(i1))
     Arrays.sort(indices, intComparator)
-    indices.map(i => i: Int)
+    indices.map(i => i: Int).toIndexedSeq
 
   /**
    * This does not actually sort, rather it returns the sort indices of an array. This provides sort indices like
@@ -148,7 +148,7 @@ object Matlib extends Mathematics with Probabilities with Statistics with Trigon
    * @return
    *   The indices of the correct sort order
    */
-  def sort[A](x: Array[A], lt: (A, A) ⇒ Boolean): Seq[Int] =
+  def sort[A](x: Array[A], lt: (A, A) => Boolean): Seq[Int] =
     val comparator = new Comparator[A]:
       override def compare(a: A, b: A) = if (lt(a, b)) -1 else 1
     sortWith(x, comparator)

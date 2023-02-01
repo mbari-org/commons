@@ -36,8 +36,7 @@ trait Point2D[A]:
 
 class DoublePoint2D(val x: Double, val y: Double) extends Point2D[Double]:
   lazy val toInt: IntPoint2D =
-    def numeric = implicitly[Numeric[Double]]
-    new IntPoint2D(numeric.toInt(round(x)), numeric.toInt(round(y)))
+    new IntPoint2D(round(x).toInt, round(y).toInt)
 
 /**
  * @param x
@@ -49,17 +48,15 @@ class DoublePoint2D(val x: Double, val y: Double) extends Point2D[Double]:
  */
 class LabeledDoublePoint2D(x: Double, y: Double, val label: Int) extends DoublePoint2D(x, y):
   override lazy val toInt: LabeledIntPoint2D =
-    def numeric = implicitly[Numeric[Double]]
     new LabeledIntPoint2D(
-      numeric.toInt(round(x)),
-      numeric.toInt(round(y)),
+      round(x).toInt,
+      round(y).toInt,
       label
     )
 
 class IntPoint2D(val x: Int, val y: Int) extends Point2D[Int]:
   lazy val toDouble: DoublePoint2D =
-    def numeric = implicitly[Numeric[Int]]
-    new DoublePoint2D(numeric.toDouble(x), numeric.toDouble(y))
+    new DoublePoint2D(x.toDouble, y.toDouble)
 
 /**
  * @param x
@@ -71,8 +68,7 @@ class IntPoint2D(val x: Int, val y: Int) extends Point2D[Int]:
  */
 class LabeledIntPoint2D(x: Int, y: Int, val label: Int) extends IntPoint2D(x, y):
   override lazy val toDouble: LabeledDoublePoint2D =
-    def numeric = implicitly[Numeric[Int]]
-    new LabeledDoublePoint2D(numeric.toDouble(x), numeric.toDouble(y), label)
+    new LabeledDoublePoint2D(x.toDouble, y.toDouble, label)
 
 object Point2D:
 
@@ -86,7 +82,7 @@ object Point2D:
    * Implicit conversion to Java Point2D
    */
   given intPointConversion: Conversion[Point2D[Int], JPoint2D] with
-    def apply(p: Point2D[Int]): JPoint2D = new JPoint2D.Float(p.x, p.y)
+    def apply(p: Point2D[Int]): JPoint2D = new JPoint2D.Float(p.x.toFloat, p.y.toFloat)
 
   /**
    * Convert a Java Point2D to a Point2D

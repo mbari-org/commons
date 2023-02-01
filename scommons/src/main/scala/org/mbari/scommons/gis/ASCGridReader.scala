@@ -29,7 +29,7 @@ object ASCGridReader:
       Matlib.linspace(xllCorner, xllCorner + (ncols - 1) * cellSize, ncols)
     val y = Matlib.linspace(yllCorner, yllCorner + (nrows - 1) * cellSize, nrows).reverse
 
-    val grid = ArrayGrid(x, y, Double.NaN)
+    val grid = ArrayGrid(x.toIndexedSeq, y.toIndexedSeq, Double.NaN)
     for (j <- 0 until nrows)
       val line = reader.readLine()
       val st   = new StringTokenizer(line)
