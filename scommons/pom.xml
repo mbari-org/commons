@@ -8,7 +8,7 @@
     <version>0.0.3</version>
   </parent>
   <artifactId>scommons</artifactId>
-  <!-- <version>${parent.version}_${scala.compat.version}</version> -->
+  <version>${parent.version}_${scala.compat.version}</version>
   <name>${project.artifactId}</name>
   <description>Commons Scala functions</description>
 
@@ -22,7 +22,7 @@
     <dependency>
       <groupId>org.mbari.commons</groupId>
       <artifactId>jcommons</artifactId>
-      <version>${project.version}</version>
+      <version>${parent.version}</version>
     </dependency>
 
     <!-- FFT "com.github.rwl" % "jtransforms" % "2.4.0", // FFT-->
