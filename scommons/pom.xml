@@ -8,7 +8,7 @@
     <version>1.0-SNAPSHOT</version>
   </parent>
   <artifactId>scommons</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <!-- <version>${parent.version}_${scala.compat.version}</version> -->
   <name>${project.artifactId}</name>
   <description>Commons Scala functions</description>
 

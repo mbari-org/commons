@@ -70,14 +70,14 @@ protected trait Probabilities:
   def histc(data: Array[Double], edges: Array[Double]) =
     Statlib.histc(data, edges)
 
-  def quantile(data: Array[Double], p: Double): Double = quantile(data, p, 1)
+  def prctile(data: Array[Double], p: Double): Double = prctile(data, p, 1)
 
-  def quantile(data: Array[Double], p: Double, method: Int): Double =
-    val a = quantile(data, Array(p), method)
+  def prctile(data: Array[Double], p: Double, method: Int): Double =
+    val a = prctile(data, Array(p), method)
     a(0)
 
-  def quantile(data: Array[Double], p: Array[Double]): Array[Double] =
-    quantile(data, p, 1)
+  def prctile(data: Array[Double], p: Array[Double]): Array[Double] =
+    prctile(data, p, 1)
 
   /**
    * Empirical quantile (percentile). Like <i>prctile</i> in Matlab's statistics toolbox
@@ -91,7 +91,7 @@ protected trait Probabilities:
    *      Based on the empirical distribution.
    * @return
    */
-  def quantile(data: Array[Double], p: Array[Double], method: Int): Array[Double] =
+  def prctile(data: Array[Double], p: Array[Double], method: Int): Array[Double] =
     // TODO verify that pcts are between 0 and 1
     require(data != null && data.size > 0, "You did not supply and data")
     val x = data.sorted

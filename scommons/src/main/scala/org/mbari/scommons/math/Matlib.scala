@@ -31,7 +31,7 @@ object Matlib extends Mathematics with Probabilities with Statistics with Trigon
   def relativecdf(y: Array[Double], y0: Array[Double], r: Array[Double]): Array[Double] =
     val (c, x)   = tocdf(y)
     val (c0, x0) = tocdf(y0)
-    val q0       = quantile(y0, r)     // value of y0 at r
+    val q0       = prctile(y0, r)      // value of y0 at r
     val f0       = interp1(x0, c0, q0) // value of c0 at q0(r), i.e. probability density
     val f        = interp1(x, c, q0)   // value of c at q0(r)
     (for (i <- 0 until f.size) yield f(i) / f0(i)).toArray
@@ -58,7 +58,7 @@ object Matlib extends Mathematics with Probabilities with Statistics with Trigon
     val n    = max(y.size, y0.size) * 2
     val p    = KDE(y, n, min_, max_)
     val p0   = KDE(y0, n, min_, max_)
-    val q0   = quantile(y0, r)           // Value of y0 at r
+    val q0   = prctile(y0, r)            // Value of y0 at r
     val f0   = interp1(p0.x, p0.pdf, q0) // value of f0 at q0(r) i.e. probability density
     val f    = interp1(p.x, p.pdf, q0)   // value of f at q0(r)
     (for (i <- 0 until f.size) yield f(i) / f0(i)).toArray
