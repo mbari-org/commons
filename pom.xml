@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.mbari.commons</groupId>
   <artifactId>commons</artifactId>
-  <version>0.0.1</version>
+  <version>0.0.3</version>
   <packaging>pom</packaging>
   <name>${project.artifactId}</name>
   <description>MBARI common Java and Scala utilities</description>
