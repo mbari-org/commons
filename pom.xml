@@ -233,7 +233,7 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-source-plugin</artifactId>
-            <version>${plugins.source.version}</version>
+            <version>${plugin.source.version}</version>
             <executions>
               <execution>
                 <id>attach-sources</id>

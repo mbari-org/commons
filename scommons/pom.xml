@@ -20,7 +20,7 @@
     </dependency>
 
     <dependency>
-      <groupId>org.mbari</groupId>
+      <groupId>org.mbari.commons</groupId>
       <artifactId>jcommons</artifactId>
       <version>${project.version}</version>
     </dependency>
