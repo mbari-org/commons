@@ -42,7 +42,7 @@
     <plugin.javadoc.version>3.4.1</plugin.javadoc.version>
     <plugin.nexus-staging.version>1.6.7</plugin.nexus-staging.version>
     <plugin.project-info-reports.version>3.4.2</plugin.project-info-reports.version>
-    <plugin.scala.version>4.8.0</plugin.scala.version>
+    <plugin.scala.version>4.8.1</plugin.scala.version>
     <plugin.site.version>4.0.0-M4</plugin.site.version>
     <plugin.source.version>3.2.1</plugin.source.version>
     <plugin.spotless.version>2.28.0</plugin.spotless.version>
@@ -51,13 +51,13 @@
     <jtransforms.version>2.4.0</jtransforms.version>
     <junit.version>4.13.2</junit.version>
     <jupiter.version>5.9.2</jupiter.version>
-    <logback.version>1.4.5</logback.version>
+    <logback.version>1.4.6</logback.version>
     <mail.version>1.5</mail.version>
     <math3.version>3.6.1</math3.version>
     <munit.version>1.0.0-M7</munit.version>
     <scala.compat.version>3</scala.compat.version>
     <scala.version>3.2.2</scala.version>
-    <slf4j.version>2.0.6</slf4j.version>
+    <slf4j.version>2.0.7</slf4j.version>
     <spire.version>0.18.0</spire.version>
   </properties>
 
