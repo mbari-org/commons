@@ -17,4 +17,5 @@ gradlew clean build package --info
 
 1. Login to <https://s01.oss.sonatype.org/>
 2. Click on [Staging Repositories](https://s01.oss.sonatype.org/#stagingRepositories) on the left.
-3. Select the staged repo and click the close button above it. This will go through the activity at the bottom. Check that everything passed. If it did it will appear in Maven central after some time. Be patient.
+3. Select the staged repo and click the `Close` button above it. This will go through the activity at the bottom. Verify that all checks passed.
+4. Select the staged repo and click the `Release` button above it. Be patient, it will appear in Maven central after some time

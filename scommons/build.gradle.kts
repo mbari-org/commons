@@ -8,6 +8,7 @@ plugins {
     scala
     `java-library`
     id("org.mbari.commons.java-conventions")
+    id("cz.alenkacz.gradle.scalafmt") version "1.16.2"
 }
 
 java {
