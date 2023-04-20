@@ -1,6 +1,8 @@
 # commons
 
-This contains Java and Scala utility classes used across a number of projects
+This contains Java and Scala utility classes used across a number of projects.
+
+[javadoc](https://javadoc.io/doc/org.mbari.commons/jcommons/latest/org.mbari.jcommons/module-summary.html)
 
 ## Developers
 
