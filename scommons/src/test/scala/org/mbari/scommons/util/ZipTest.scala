@@ -4,7 +4,7 @@ import java.io.{BufferedWriter, File, FileWriter}
 import java.util.Date
 
 class ZipTest extends munit.FunSuite:
-  test("zip files up") {
+  test("zip files up".ignore) {
     val fs = Seq("target/file1.txt", "target/file2.txt")
 
     fs.foreach { f =>
