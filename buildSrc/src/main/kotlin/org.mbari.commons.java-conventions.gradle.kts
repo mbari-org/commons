@@ -38,7 +38,9 @@ publishing {
             from(components["java"])
             pom {
                 name.set("commons")
-                // packaging.set("jar")
+                groupId = "org.mbari.commons"
+                artifactId = project.name
+                description.set("MBARI Common Java and Scala utilities")
                 url.set("https://github.com/mbari-org/commons")
                 licenses {
                     license {
