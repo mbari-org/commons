@@ -23,7 +23,7 @@ dependencies {
 }
 
 group = "org.mbari.commons"
-version = "0.0.4"
+version = "0.0.5"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_17
@@ -37,9 +37,10 @@ publishing {
         create<MavenPublication>("maven") {
             from(components["java"])
             pom {
-                name.set("commons")
+                name.set(project.name)
                 groupId = "org.mbari.commons"
                 artifactId = project.name
+                
                 description.set("MBARI Common Java and Scala utilities")
                 url.set("https://github.com/mbari-org/commons")
                 licenses {
