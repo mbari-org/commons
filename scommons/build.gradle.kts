@@ -26,5 +26,7 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
 }
 
+// Override the default artifactId for Maven to adhere to Scala conventions
+extra["artifactIdForMaven"] = "scommons_3"
 
 description = "scommons"

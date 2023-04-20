@@ -23,7 +23,8 @@ dependencies {
 }
 
 group = "org.mbari.commons"
-version = "0.0.5"
+version = "0.0.6"
+extra["artifactIdForMaven"] = project.name
 
 java {
     sourceCompatibility = JavaVersion.VERSION_17
@@ -32,6 +33,7 @@ java {
     withJavadocJar()
 }
 
+
 publishing {
     publications {
         create<MavenPublication>("maven") {
@@ -39,9 +41,11 @@ publishing {
             pom {
                 name.set(project.name)
                 groupId = "org.mbari.commons"
-                artifactId = project.name
                 
-                description.set("MBARI Common Java and Scala utilities")
+                afterEvaluate {
+                    artifactId = project.extra["artifactIdForMaven"] as String?
+                }
+                description.set("MBARI Commons JVM Libraries. jcommomns for Java. scommons for Scala.")
                 url.set("https://github.com/mbari-org/commons")
                 licenses {
                     license {
@@ -66,7 +70,7 @@ publishing {
     }
     repositories {
         maven {
-            // change URLs to point to your repos, e.g. http://my.org/repo
+            // change URLs to point to your repos, e.g. http://my.org/repo. Uncomemnt for debugging locally
             val releasesRepoUrl = uri(layout.buildDirectory.dir("repos/releases"))
             val snapshotsRepoUrl = uri(layout.buildDirectory.dir("repos/snapshots"))
             url = if (version.toString().endsWith("SNAPSHOT")) snapshotsRepoUrl else releasesRepoUrl
