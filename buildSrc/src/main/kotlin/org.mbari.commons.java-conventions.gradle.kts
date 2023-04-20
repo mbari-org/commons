@@ -23,7 +23,8 @@ dependencies {
 }
 
 group = "org.mbari.commons"
-version = "0.0.4"
+version = "0.0.6"
+extra["artifactIdForMaven"] = project.name
 
 java {
     sourceCompatibility = JavaVersion.VERSION_17
@@ -32,15 +33,19 @@ java {
     withJavadocJar()
 }
 
+
 publishing {
     publications {
         create<MavenPublication>("maven") {
             from(components["java"])
             pom {
-                name.set("commons")
+                name.set(project.name)
                 groupId = "org.mbari.commons"
-                artifactId = project.name
-                description.set("MBARI Common Java and Scala utilities")
+                
+                afterEvaluate {
+                    artifactId = project.extra["artifactIdForMaven"] as String?
+                }
+                description.set("MBARI Commons JVM Libraries. jcommomns for Java. scommons for Scala.")
                 url.set("https://github.com/mbari-org/commons")
                 licenses {
                     license {
@@ -65,17 +70,17 @@ publishing {
     }
     repositories {
         maven {
-            // change URLs to point to your repos, e.g. http://my.org/repo
-            val releasesRepoUrl = uri(layout.buildDirectory.dir("repos/releases"))
-            val snapshotsRepoUrl = uri(layout.buildDirectory.dir("repos/snapshots"))
-            url = if (version.toString().endsWith("SNAPSHOT")) snapshotsRepoUrl else releasesRepoUrl
-            // val releasesRepoUrl = uri("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
-            // val snapshotsRepoUrl = uri("https://s01.oss.sonatype.org/content/repositories/snapshots/")
+            // change URLs to point to your repos, e.g. http://my.org/repo. Uncomemnt for debugging locally
+            // val releasesRepoUrl = uri(layout.buildDirectory.dir("repos/releases"))
+            // val snapshotsRepoUrl = uri(layout.buildDirectory.dir("repos/snapshots"))
             // url = if (version.toString().endsWith("SNAPSHOT")) snapshotsRepoUrl else releasesRepoUrl
-            // credentials { 
-            //     username = project.findProperty("osshrUsername") as String? ?: System.getenv("OSSRH_USERNAME")
-            //     password = project.findProperty("ossrhPassword") as String? ?: System.getenv("OSSRH_PASSWORD")
-            // }
+            val releasesRepoUrl = uri("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
+            val snapshotsRepoUrl = uri("https://s01.oss.sonatype.org/content/repositories/snapshots/")
+            url = if (version.toString().endsWith("SNAPSHOT")) snapshotsRepoUrl else releasesRepoUrl
+            credentials { 
+                username = project.findProperty("osshrUsername") as String? ?: System.getenv("OSSRH_USERNAME")
+                password = project.findProperty("ossrhPassword") as String? ?: System.getenv("OSSRH_PASSWORD")
+            }
         }
     }
 }
