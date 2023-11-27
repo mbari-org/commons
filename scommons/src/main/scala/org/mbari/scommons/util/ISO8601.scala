@@ -23,5 +23,6 @@ object ISO8601:
   def parse(timestamp: String): Option[Instant] =
     Try(formatMillis.parse(timestamp))
       .orElse(Try(formatSeconds.parse(timestamp)))
+      .orElse(Try(DateTimeFormatter.ISO_INSTANT.parse(timestamp)))
       .toOption
       .map(Instant.from)

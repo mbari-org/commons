@@ -33,7 +33,6 @@ java {
     withJavadocJar()
 }
 
-
 publishing {
     publications {
         create<MavenPublication>("maven") {
@@ -93,5 +92,12 @@ signing {
 tasks.javadoc {
     if (JavaVersion.current().isJava9Compatible) {
         (options as StandardJavadocDocletOptions).addBooleanOption("html5", true)
+    }
+}
+
+tasks.jar {
+    manifest {
+        attributes(mapOf("Implementation-Title" to project.name,
+                         "Implementation-Version" to project.version))
     }
 }
