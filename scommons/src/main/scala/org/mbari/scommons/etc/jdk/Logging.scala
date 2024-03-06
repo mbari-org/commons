@@ -47,3 +47,6 @@ object Logging:
 
   given Conversion[Logger, LoggerBuilder] with
     def apply(logger: Logger): LoggerBuilder = LoggerBuilder(logger)
+
+  def apply(name: String): LoggerBuilder    = LoggerBuilder(System.getLogger(name))
+    def apply(clazz: Class[?]): LoggerBuilder = apply(clazz.getName)

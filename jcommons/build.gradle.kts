@@ -9,12 +9,13 @@ import com.adarshr.gradle.testlogger.theme.Theme/*
 plugins {
     `java-library`
     id("org.mbari.commons.java-conventions")
-    id("com.adarshr.test-logger") version "2.1.1"
+    id("com.adarshr.test-logger") version "4.0.0"
+    id("com.github.ben-manes.versions") version "0.51.0"
 }
 
 dependencies {
-    testImplementation("org.junit.jupiter:junit-jupiter:5.9.2")
-    testImplementation("org.junit.jupiter:junit-jupiter-engine:5.9.2")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.10.2")
+    testImplementation("org.junit.jupiter:junit-jupiter-engine:5.10.2")
 }
 
 java {

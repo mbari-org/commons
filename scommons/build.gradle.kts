@@ -18,7 +18,7 @@ java {
 
 dependencies {
     api(project(":jcommons"))
-    implementation("org.scala-lang:scala3-library_3:3.2.2")
+    implementation("org.scala-lang:scala3-library_3:3.3.1")
     implementation("com.github.rwl:jtransforms:2.4.0")
     implementation("org.typelevel:spire_3:0.18.0")
     implementation("org.apache.commons:commons-math3:3.6.1")
@@ -31,3 +31,7 @@ dependencies {
 extra["artifactIdForMaven"] = "scommons_3"
 
 description = "scommons"
+
+scalafmt {
+    
+}

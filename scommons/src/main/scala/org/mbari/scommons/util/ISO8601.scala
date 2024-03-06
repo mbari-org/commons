@@ -7,13 +7,22 @@ import scala.util.Try
 
 object ISO8601:
 
-  private[this] val formatMillis = DateTimeFormatter
-    .ofPattern("yyyyMMdd'T'HHmmss.SSSX")
-    .withZone(ZoneId.of("UTC"))
+  private val utcZone                           = ZoneId.of("UTC")
+    val TimeFormatter: DateTimeFormatter          = DateTimeFormatter.ISO_DATE_TIME.withZone(utcZone)
+    val CompactTimeFormatter: DateTimeFormatter   = DateTimeFormatter.ofPattern("yyyyMMdd'T'HHmmssX").withZone(utcZone)
+    val CompactTimeFormatterMs: DateTimeFormatter =
+        DateTimeFormatter.ofPattern("yyyyMMdd'T'HHmmss.SSSX").withZone(utcZone)
+    val CompactTimeFormatterNs: DateTimeFormatter =
+        DateTimeFormatter.ofPattern("yyyyMMdd'T'HHmmss.SSSSSSX").withZone(utcZone)
 
-  private[this] val formatSeconds = DateTimeFormatter
-    .ofPattern("yyyyMMdd'T'HHmmssX")
-    .withZone(ZoneId.of("UTC"))
+    def parseIso8601(s: String): Either[Throwable, Instant] =
+        val tried = Try(Instant.from(CompactTimeFormatter.parse(s))) orElse
+            Try(Instant.from(TimeFormatter.parse(s))) orElse
+            Try(Instant.from(CompactTimeFormatterMs.parse(s))) orElse
+            Try(Instant.from(CompactTimeFormatterNs.parse(s)))
+        tried.toEither
+
+
 
   /**
    * Parse a string in common ISO8601 formats into an Instant
