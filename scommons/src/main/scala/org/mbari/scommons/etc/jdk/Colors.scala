@@ -4,7 +4,31 @@ import java.awt.Color
 
 object Colors:
 
-    def stringToHexColor(s: String): String =
+    /**
+     * @param hex
+     *   Hex representation of color. For example, #FF0000 is red. #FFFFFF is white. #FFFF0030 is a transparent yellow.
+     * @return
+     *   A java.awt.Color from a hex string.
+     */
+    def fromHex(hex: String): Color =
+        val s = hex.replace("#", "")
+        val r = Integer.parseInt(s.substring(0, 2), 16)
+        val g = Integer.parseInt(s.substring(2, 4), 16)
+        val b = Integer.parseInt(s.substring(4, 6), 16)
+
+        if s.length == 8 then
+            val a = Integer.parseInt(s.substring(6, 8), 16)
+            new Color(r, g, b, a)
+        else new Color(r, g, b)
+
+    /**
+     * Converts a string to a hex color. The color is based on the hash code of the string.
+     * @param s
+     *   the string to convert
+     * @return
+     *   the hex color
+     */
+    def stringToHex(s: String): String =
         val c = intToRGBA(s.hashCode)
         f"#${c.getRed}%02X${c.getGreen}%02X${c.getBlue}%02X" // ignore alpha. Sharktopoda won't parse colors with alpha
 
