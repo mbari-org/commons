@@ -7,7 +7,7 @@ import java.util.function.Supplier
 /**
  * Add fluent logging to System.Logger. Usage:
  * {{{
- * import org.fathomnet.support.etc.jdk.Logging.{given, *}
+ * import org.fathomnet.support.etc.jdk.Loggers.{given, *}
  * given log: Logger = Sytem.getLogger("my.logger")
  *
  * log.atInfo.log("Hello World")
@@ -17,7 +17,7 @@ import java.util.function.Supplier
  * }}}
  * * @author Brian Schlining
  */
-object Logging:
+object Loggers:
 
   case class LoggerBuilder(
       logger: Logger,

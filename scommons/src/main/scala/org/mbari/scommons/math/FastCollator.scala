@@ -1,6 +1,6 @@
 package org.mbari.scommons.math
 
-import org.mbari.scommons.etc.jdk.Logging.given
+import org.mbari.scommons.etc.jdk.Loggers.given
 import java.lang.System.Logger.Level
 
 /**

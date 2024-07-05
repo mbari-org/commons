@@ -14,8 +14,12 @@ import java.util.concurrent.locks.ReentrantLock;
  * }
  * }
  * 
- * @see https://debugagent.com/relearning-java-thread-primitives
+ * From https://debugagent.com/relearning-java-thread-primitives
+ * 
+ * @deprecated Use {@link AutoCloseableLock} instead
+ * 
  */
+
 public class CloseableLock implements AutoCloseable, Lock {
   private final Lock lock;
 
