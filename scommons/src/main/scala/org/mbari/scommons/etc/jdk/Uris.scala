@@ -23,3 +23,4 @@ object Uris:
                 .withCause(e)
                 .log(s"Failed to connect to $uri")
             false
+
