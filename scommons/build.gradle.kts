@@ -9,6 +9,7 @@ plugins {
     `java-library`
     id("org.mbari.commons.java-conventions")
     id("cz.alenkacz.gradle.scalafmt") version "1.16.2"
+    id("tech.medivh.plugin.publisher") version "1.0.0"
 }
 
 java {
