@@ -13,6 +13,9 @@ This contains Java and Scala utility classes used across a number of projects.
 ```bash
 # build with Java 17
 gradlew clean build package --info
+
+# publish to maven central
+./gradlew uploadToSonatype
 ```
 
 #### Publish

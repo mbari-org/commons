@@ -67,21 +67,21 @@ publishing {
             }
         }
     }
-    repositories {
-        maven {
-            // change URLs to point to your repos, e.g. http://my.org/repo. Uncomemnt for debugging locally
-            // val releasesRepoUrl = uri(layout.buildDirectory.dir("repos/releases"))
-            // val snapshotsRepoUrl = uri(layout.buildDirectory.dir("repos/snapshots"))
-            // url = if (version.toString().endsWith("SNAPSHOT")) snapshotsRepoUrl else releasesRepoUrl
-            val releasesRepoUrl = uri("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
-            val snapshotsRepoUrl = uri("https://s01.oss.sonatype.org/content/repositories/snapshots/")
-            url = if (version.toString().endsWith("SNAPSHOT")) snapshotsRepoUrl else releasesRepoUrl
-            credentials { 
-                username = project.findProperty("osshrUsername") as String? ?: System.getenv("OSSRH_USERNAME")
-                password = project.findProperty("ossrhPassword") as String? ?: System.getenv("OSSRH_PASSWORD")
-            }
-        }
-    }
+    // repositories {
+    //     maven {
+    //         // change URLs to point to your repos, e.g. http://my.org/repo. Uncomemnt for debugging locally
+    //         // val releasesRepoUrl = uri(layout.buildDirectory.dir("repos/releases"))
+    //         // val snapshotsRepoUrl = uri(layout.buildDirectory.dir("repos/snapshots"))
+    //         // url = if (version.toString().endsWith("SNAPSHOT")) snapshotsRepoUrl else releasesRepoUrl
+    //         val releasesRepoUrl = uri("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
+    //         val snapshotsRepoUrl = uri("https://s01.oss.sonatype.org/content/repositories/snapshots/")
+    //         url = if (version.toString().endsWith("SNAPSHOT")) snapshotsRepoUrl else releasesRepoUrl
+    //         credentials { 
+    //             username = project.findProperty("osshrUsername") as String? ?: System.getenv("OSSRH_USERNAME")
+    //             password = project.findProperty("ossrhPassword") as String? ?: System.getenv("OSSRH_PASSWORD")
+    //         }
+    //     }
+    // }
 }
 
 signing {

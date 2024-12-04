@@ -11,12 +11,12 @@ plugins {
     id("org.mbari.commons.java-conventions")
     id("com.adarshr.test-logger") version "4.0.0"
     id("com.github.ben-manes.versions") version "0.51.0"
-    id("tech.medivh.plugin.publisher") version "1.0.0"
+    id("tech.medivh.plugin.publisher") version "1.2.1"
 }
 
 dependencies {
-    testImplementation("org.junit.jupiter:junit-jupiter:5.10.2")
-    testImplementation("org.junit.jupiter:junit-jupiter-engine:5.10.2")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.11.3")
+    testImplementation("org.junit.jupiter:junit-jupiter-engine:5.11.3")
 }
 
 java {

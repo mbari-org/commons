@@ -6,7 +6,7 @@ import java.time.Instant
 import scala.util.Try
 import org.mbari.scommons.etc.jdk.Instants
 
-@deprecated("Use org.mbari.scommons.Instants instead", "0.0.7")
+@deprecated("Use org.mbari.scommons.etc.jdk.Instants instead", "0.0.7")
 object ISO8601:
 
     def parseIso8601(s: String): Either[Throwable, Instant] =
