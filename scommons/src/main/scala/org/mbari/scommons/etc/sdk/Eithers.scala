@@ -24,8 +24,8 @@ object Eithers:
      * @return
      *   A sequence of items that have been transformed by the function
      */
-    def traverse[A, B](seq: Seq[A])(f: A => Either[Throwable, B]): Either[Throwable, Seq[B]] =
-        seq.foldLeft(Right(Seq.empty): Either[Throwable, Seq[B]]) { (acc, a) =>
+    def traverse[A, E, B](seq: Seq[A])(f: A => Either[E, B]): Either[E, Seq[B]] =
+        seq.foldLeft(Right(Seq.empty): Either[E, Seq[B]]) { (acc, a) =>
             for
                 xs <- acc
                 x  <- f(a)
