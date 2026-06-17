@@ -1,9 +1,10 @@
 package org.mbari.scommons.etc.jdk
 
+import java.net.HttpURLConnection
 import java.net.URI
+import java.net.URLEncoder
 import Loggers.given
 import scala.util.control.NonFatal
-import java.net.HttpURLConnection
 
 object Uris:
 
@@ -23,4 +24,7 @@ object Uris:
                 .withCause(e)
                 .log(s"Failed to connect to $uri")
             false
+
+    def encode(uri: URI): String =
+        URLEncoder.encode(uri.toString(), StandardCharsets.UTF_8.toString())
 
