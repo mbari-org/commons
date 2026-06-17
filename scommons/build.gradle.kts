@@ -8,8 +8,6 @@ plugins {
     scala
     `java-library`
     id("org.mbari.commons.java-conventions")
-    id("cz.alenkacz.gradle.scalafmt") version "1.16.2"
-    id("tech.medivh.plugin.publisher") version "1.2.1"
 }
 
 java {
@@ -20,11 +18,11 @@ java {
 dependencies {
     api(project(":jcommons"))
     implementation("org.scala-lang:scala3-library_3:3.3.4")
-    implementation("com.github.rwl:jtransforms:2.4.0")
+    implementation("com.github.wendykierp:jtransforms:3.2")
     implementation("org.typelevel:spire_3:0.18.0")
     implementation("org.apache.commons:commons-math3:3.6.1")
     implementation("org.apache.commons:commons-email:1.6.0")
-    testImplementation("org.scalameta:munit_3:1.0.2")
+    testImplementation("org.scalameta:munit_3:1.3.0")
     testImplementation("junit:junit:4.13.2")
 }
 
@@ -33,6 +31,3 @@ extra["artifactIdForMaven"] = "scommons_3"
 
 description = "scommons"
 
-scalafmt {
-    
-}
