@@ -18,7 +18,7 @@ java {
 dependencies {
     api(project(":jcommons"))
     implementation("org.scala-lang:scala3-library_3:3.3.4")
-    implementation("com.github.wendykierp:jtransforms:3.2")
+    implementation("com.github.wendykierp:JTransforms:3.2")
     implementation("org.typelevel:spire_3:0.18.0")
     implementation("org.apache.commons:commons-math3:3.6.1")
     implementation("org.apache.commons:commons-email:1.6.0")

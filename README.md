@@ -94,9 +94,54 @@ implementation 'org.mbari.commons:scommons_3:VERSION'
 
 ### Deployment to Maven Central
 
-```bash
-# Publish to Sonatype staging (requires GPG key and OSSRH credentials in ~/.gradle/gradle.properties)
-./gradlew uploadToSonatype
-```
+Releases are published through the [Central Portal](https://central.sonatype.com) using the
+[nmcp](https://gradleup.com/nmcp/) Gradle plugin, which bundles both `jcommons` and `scommons_3`
+into a single, signed deployment.
 
-Then log in to <https://s01.oss.sonatype.org/>, select the staged repository under **Staging Repositories**, click **Close**, verify all checks passed, then click **Release**.
+**One-time setup**
+
+1. **GPG signing** — a GPG key must be configured locally; the build signs artifacts with
+   `gpg` (`useGpgCmd()`) and the Portal rejects unsigned uploads.
+2. **Central Portal token** — generate a user token at
+   <https://central.sonatype.com/account>. The build reads it from your Maven
+   `~/.m2/settings.xml`:
+
+   ```xml
+   <settings>
+     <servers>
+       <server>
+         <id>central</id>
+         <username>TOKEN_USERNAME</username>
+         <password>TOKEN_PASSWORD</password>
+       </server>
+     </servers>
+   </settings>
+   ```
+
+   Alternatively, set gradle properties `centralUsername` / `centralPassword` in
+   `~/.gradle/gradle.properties`, or environment variables `CENTRAL_USERNAME` /
+   `CENTRAL_PASSWORD` (handy for CI, where `~/.m2/settings.xml` is absent).
+
+**Releasing**
+
+1. Bump the `version` in
+   `buildSrc/src/main/kotlin/org.mbari.commons.java-conventions.gradle.kts`.
+2. (Optional) Inspect the exact bundle before uploading:
+
+   ```bash
+   ./gradlew nmcpZipAggregation   # -> build/nmcp/zip/aggregation.zip
+   ```
+
+3. Upload the deployment to the Portal:
+
+   ```bash
+   ./gradlew publishAggregationToCentralPortal
+   ```
+
+4. Log in to <https://central.sonatype.com>, open the deployment under **Deployments**,
+   confirm validation passed, and click **Publish**.
+
+The deployment is uploaded as `USER_MANAGED`, so it waits in the *Validated* state for you
+to publish it manually — you can drop it from the Portal if something looks wrong. To release
+automatically once validation passes, change `publishingType` to `"AUTOMATIC"` in
+`settings.gradle.kts`.

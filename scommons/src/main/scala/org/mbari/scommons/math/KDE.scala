@@ -1,6 +1,6 @@
 package org.mbari.scommons.math
 
-import edu.emory.mathcs.jtransforms.dct.DoubleDCT_1D
+import org.jtransforms.dct.DoubleDCT_1D
 import org.mbari.jcommons.math.Statlib
 import scala.math._
 import org.mbari.scommons.etc.spire.ComplexLib

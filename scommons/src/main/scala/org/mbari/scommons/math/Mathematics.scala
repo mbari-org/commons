@@ -1,7 +1,7 @@
 package org.mbari.scommons.math
 
 import spire.math.Complex
-import edu.emory.mathcs.jtransforms.fft.DoubleFFT_1D
+import org.jtransforms.fft.DoubleFFT_1D
 import org.apache.commons.math3.analysis.solvers.BisectionSolver
 import org.apache.commons.math3.analysis.UnivariateFunction
 import org.apache.commons.math3.analysis.interpolation.LinearInterpolator
