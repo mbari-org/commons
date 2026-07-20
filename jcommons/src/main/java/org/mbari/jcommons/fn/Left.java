@@ -1,4 +1,4 @@
-package org.mbari.expd.etc.jdk;
+package org.mbari.jcommons.fn;
 
 import java.util.Optional;
 import java.util.function.Function;
