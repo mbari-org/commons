@@ -1,6 +1,6 @@
 package org.mbari.scommons.etc.spire
 
-import edu.emory.mathcs.jtransforms.fft.DoubleFFT_1D
+import org.jtransforms.fft.DoubleFFT_1D
 import scala.{math => M}
 import spire.implicits._
 import spire.math.Complex

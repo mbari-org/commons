@@ -13,3 +13,7 @@ repositories {
     // Use the plugin portal to apply community plugins in convention plugins.
     gradlePluginPortal()
 }
+
+dependencies {
+    implementation("com.gradleup.nmcp:com.gradleup.nmcp.gradle.plugin:1.5.0")
+}

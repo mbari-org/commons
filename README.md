@@ -94,9 +94,17 @@ implementation 'org.mbari.commons:scommons_3:VERSION'
 
 ### Deployment to Maven Central
 
-```bash
-# Publish to Sonatype staging (requires GPG key and OSSRH credentials in ~/.gradle/gradle.properties)
-./gradlew uploadToSonatype
+Requires a GPG key (for signing) and a Central Portal token in `~/.gradle/gradle.properties`:
+
+```properties
+mavenCentralUsername=YOUR_TOKEN_USERNAME
+mavenCentralPassword=YOUR_TOKEN_PASSWORD
 ```
 
-Then log in to <https://s01.oss.sonatype.org/>, select the staged repository under **Staging Repositories**, click **Close**, verify all checks passed, then click **Release**.
+Generate a token at <https://central.sonatype.com/account> → **Generate User Token**.
+
+```bash
+./gradlew clean build publishAggregationToCentralPortal
+```
+
+Then log in to <https://central.sonatype.com/publishing/deployments>, verify validation passed, and click **Publish** to release.

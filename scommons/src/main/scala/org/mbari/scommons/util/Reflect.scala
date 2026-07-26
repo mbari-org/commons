@@ -18,38 +18,25 @@ object Reflect:
    * @throws IllegalArgumentException
    *   if a required parameter is missing
    */
-  /**
-     * Create an instance of a class from a Map of parameters. The keys of the map must match the names of the
-     * constructor parameters. 
-     *
-     * @param m
-     *   The map of parameters
-     * @tparam T
-     *   The type of the class to create
-     * @return
-     *   A new instance of the class
-     * @throws IllegalArgumentException
-     *   if a required parameter is missing
-     */
-    def fromMap[T <: Product : ClassTag](m: Map[String, Any]): T = {
-        val classTag    = implicitly[ClassTag[T]]
-        val constructor = classTag.runtimeClass.getDeclaredConstructors.head
-        val constructorArgs = constructor.getParameters.map { param =>
-            val paramName = param.getName
-            val paramType = param.getType
+  def fromMap[T : ClassTag](m: Map[String, Any]): T = {
+    val classTag    = implicitly[ClassTag[T]]
+    val constructor = classTag.runtimeClass.getDeclaredConstructors.head
+    val constructorArgs = constructor.getParameters.map { param =>
+      val paramName = param.getName
+      val paramType = param.getType
 
-            m.get(paramName) match {
-                case Some(value) =>
-                    if (paramType == classOf[Option[?]]) Some(value) // Ensure the option is wrapped properly
-                    else value
-                case None if paramType == classOf[Option[?]] => None // Handle default None case properly
-                case None =>
-                    throw new IllegalArgumentException(s"Missing required parameter: $paramName")
-            }
-        }
-
-        constructor.newInstance(constructorArgs*).asInstanceOf[T]
+      m.get(paramName) match {
+        case Some(value) =>
+          if (paramType == classOf[Option[?]]) Some(value)
+          else value
+        case None if paramType == classOf[Option[?]] => None
+        case None =>
+          throw new IllegalArgumentException(s"Missing required parameter: $paramName")
       }
+    }
+
+    constructor.newInstance(constructorArgs*).asInstanceOf[T]
+  }
 
   /**
    * Create an instance of a class from a java.util.Map of parameters. The keys of the map must match the names of the
@@ -64,7 +51,7 @@ object Reflect:
    * @throws IllegalArgumentException
    *   if a required parameter is missing
    */
-  def fromJavaMap[T: ClassTag](m: java.util.Map[String, ?]): T =
+  def fromJavaMap[T : ClassTag](m: java.util.Map[String, ?]): T =
     fromMap(m.asScala.toMap)
 
   /**

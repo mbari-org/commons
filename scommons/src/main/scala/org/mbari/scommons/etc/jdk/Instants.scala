@@ -8,14 +8,25 @@ import java.time.temporal.ChronoUnit
 
 object Instants:
 
-    private val compactTimeFormatter =
-      DateTimeFormatter.ofPattern("yyyyMMdd'T'HHmmssX").withZone(java.time.ZoneOffset.UTC)
+    val TimeFormatter: DateTimeFormatter =
+      DateTimeFormatter.ISO_DATE_TIME.withZone(ZoneOffset.UTC)
+
+    val CompactTimeFormatter: DateTimeFormatter =
+      DateTimeFormatter.ofPattern("yyyyMMdd'T'HHmmssX").withZone(ZoneOffset.UTC)
+
+    val CompactTimeFormatterMs: DateTimeFormatter =
+      DateTimeFormatter.ofPattern("yyyyMMdd'T'HHmmss.SSSX").withZone(ZoneOffset.UTC)
+
+    val CompactTimeFormatterNs: DateTimeFormatter =
+      DateTimeFormatter.ofPattern("yyyyMMdd'T'HHmmss.SSSSSSX").withZone(ZoneOffset.UTC)
+
+    private val compactTimeFormatter = CompactTimeFormatter
 
     private val formatters = Seq(
       compactTimeFormatter,
-      DateTimeFormatter.ISO_DATE_TIME,
-      DateTimeFormatter.ofPattern("yyyyMMdd'T'HHmmss.SSSX").withZone(java.time.ZoneOffset.UTC),
-      DateTimeFormatter.ofPattern("yyyyMMdd'T'HHmmss.SSSSSSX").withZone(java.time.ZoneOffset.UTC),
+      TimeFormatter,
+      CompactTimeFormatterMs,
+      CompactTimeFormatterNs,
       DateTimeFormatter.ISO_OFFSET_DATE_TIME,
       DateTimeFormatter.ISO_INSTANT)
 
